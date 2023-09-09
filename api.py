@@ -1,9 +1,11 @@
 import json
-
 from flask import Flask, Response, request
 from utils import get_last_price
-
 from db import MongoDriver
+from datetime import datetime
+
+
+
 
 app = Flask(__name__)
 
@@ -23,13 +25,19 @@ def get_stock_price():
         return {"company_ticker": company_ticker, "price": None, 'error': str(error)}
 
     response_raw = {
-        "INSTITUCION": company_ticker,
-        "ULTIMO-PRECIO": last_price
-    }
+            "INSTITUCION": company_ticker,
+            "ULTIMO-PRECIO": last_price,
+            "FECHA_REGISTRO": datetime.now()
+            }
 
     mongodb.insert_record(record=response_raw, username="REGISTROS")
 
     return Response(json.dumps(response_raw), mimetype='application/json')
+
+
+
+
+
 
 
 if __name__ == "__main__":

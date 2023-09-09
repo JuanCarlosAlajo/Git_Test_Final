@@ -1,7 +1,7 @@
 import json
 from flask import Flask, Response, request
 from utils import get_last_price
-from db import MongoDriver
+from cnx_base_datos import MongoDriver
 from datetime import datetime
 
 

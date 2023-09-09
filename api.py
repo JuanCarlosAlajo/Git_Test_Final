@@ -3,6 +3,8 @@ import json
 from flask import Flask, Response, request
 from utils import get_last_price
 
+from db import MongoDriver
+
 app = Flask(__name__)
 
 
@@ -14,13 +16,18 @@ def hello_world():
 @app.route("/api/stock")
 def get_stock_price():
     company_ticker = request.args.get("ticker")
-
+    mongodb = MongoDriver()
     try:
         last_price = get_last_price(ticker=company_ticker)
     except ValueError as error:
         return {"company_ticker": company_ticker, "price": None, 'error': str(error)}
 
-    response_raw = {"company_ticker": company_ticker, "price": last_price}
+    response_raw = {
+        "INSTITUCION": company_ticker,
+        "ULTIMO-PRECIO": last_price
+    }
+
+    mongodb.insert_record(record=response_raw, username="REGISTROS")
 
     return Response(json.dumps(response_raw), mimetype='application/json')
 

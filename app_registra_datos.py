@@ -14,7 +14,7 @@ app = Flask(__name__)
 def hello_world():
     return "<h2>Hola.. Mi pais Ecuador!</h2>"
 
-
+#--
 @app.route("/api/stock")
 def get_stock_price():
     company_ticker = request.args.get("ticker")

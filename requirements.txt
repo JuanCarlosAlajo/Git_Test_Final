@@ -1,4 +1,6 @@
+selenium
 requests
 flask
 pymongo
 python-dotenv
+

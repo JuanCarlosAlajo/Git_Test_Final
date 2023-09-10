@@ -23,6 +23,8 @@ class MongoDriver:
     def insert_record(self, record: dict, username: str):
         self.client.get_database('pry_test_fin_tratam_datos').get_collection(f'{username}_TEST-FINAL').insert_one(record)
 
+    def insert_record_sel(self, record: dict, username: str):
+        self.client.get_database('db_eig').get_collection(f'{username}_patiotuerca').insert_one(record)
     def test_connection(self):
         try:
             self.client.admin.command('ping')

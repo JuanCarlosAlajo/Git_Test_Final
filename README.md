@@ -19,4 +19,4 @@ El desarrollo de la práctica, tiene como objeto aplicar los conocimientos recib
 
     1.1 **DIAGRAMA DE ARQUITECTURA**
 
-![](Aspose.Words.3cf528f3-3880-4034-a231-215472690b79.001.png)
+![Image text](/graficos/arquitectura.png)

@@ -35,18 +35,3 @@ class MongoDriver:
 
 if __name__ == "__main__":
     mi_base_de_datos = MongoDriver()
-    mi_base_de_datos.insert_record(record={
-        "titulo": "Audi A4",
-        "detalles": {
-            "matricula": "982JHG",
-            "fechayhora": datetime.now(),
-            "incidencias": [
-                "problema con el carter",
-                "faro roto",
-                "motor quemado",
-                "falta una rueda"
-            ]
-        },
-        "precio": 100,
-        "kms": 450000},
-        username="JUANITO")

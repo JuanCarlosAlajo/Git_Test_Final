@@ -26,7 +26,7 @@ def get_stock_price():
 
     response_raw = {
             "INSTITUCION": company_ticker,
-            "ULTIMO-PRECIO": last_price,
+            "AVALUO": last_price,
             "FECHA_REGISTRO": datetime.now()
             }
 
